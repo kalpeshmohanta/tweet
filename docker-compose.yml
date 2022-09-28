@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  tweet-service:
+    image: kalpeshmohanta/tweet:tweet-service
+    ports:
+      - "6379:6379"
+        
+  tweet-app:
+    image: kalpeshmohanta/tweet:tweet-app
+    ports:
+      - "80:80"
+    
+    links:
+        - tweet-service
+        
